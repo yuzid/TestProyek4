@@ -6,6 +6,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.myapplication.ui.screen.DataEntry.DataEntryScreen
+import com.example.myapplication.ui.screen.DataList.DataListScreen
+import com.example.myapplication.ui.screen.EditScreen.EditScreen
 import com.example.myapplication.viewmodel.DataViewModel
 
 @Composable
