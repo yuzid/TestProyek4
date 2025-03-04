@@ -1,7 +1,6 @@
-package com.example.myapplication.ui
+package com.example.myapplication.ui.screen.EditScreen
 
 import android.widget.Toast
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll

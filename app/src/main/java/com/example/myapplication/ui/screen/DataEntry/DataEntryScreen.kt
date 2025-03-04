@@ -1,4 +1,4 @@
-package com.example.myapplication.ui
+package com.example.myapplication.ui.screen.DataEntry
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.*
@@ -86,18 +86,18 @@ fun DataEntryScreen(navController: NavHostController, viewModel: DataViewModel) 
                     )
                     Toast.makeText(context, "Data berhasil ditambahkan!", Toast.LENGTH_SHORT).show()
                     // Navigasi ke tampilan daftar data
-                    navController.navigate("list")
+
+                    namaProvinsi = ""
+                    namaKabupatenKota = ""
+                    total = ""
+                    satuan = ""
+                    tahun = ""
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text("Submit Data")
             }
-            Button(
-                onClick = {navController.navigate("list")},
-                modifier = Modifier.fillMaxWidth()
-            ){
-                Text("Lihat List Data")
-            }
+
         }
     }
 }
