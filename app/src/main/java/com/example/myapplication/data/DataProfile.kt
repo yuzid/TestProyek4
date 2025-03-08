@@ -8,5 +8,6 @@ data class DataProfile (
     @PrimaryKey val id: Int = 1,
     var username: String = "Yazid Fauzan Prasatria",
     var uid: String = "231511032",
-    var email: String = "yazid.fauzan.tif23@polban.ac.id"
+    var email: String = "yazid.fauzan.tif23@polban.ac.id",
+    var profileImageUri: String? = null
 )

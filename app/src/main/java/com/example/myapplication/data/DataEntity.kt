@@ -9,7 +9,7 @@ data class DataEntity(
     val id: Int = 0,
     val namaProvinsi: String,
     val bpsnamaKabupatenKota: String,
-    val persentasePeningkatanKapasitasSumberDayaKesehatanManusia: Double,
+    val persentasePeningkatanKapasitasSumberDayaKesehatanManusia: Float,
     val satuan: String,
     val tahun: Int
 )

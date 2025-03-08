@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id 'com.google.devtools.ksp'
 
+
 }
 
 android {
@@ -50,8 +51,9 @@ dependencies {
     implementation libs.ui.tooling.preview
     implementation libs.androidx.runtime.livedata
     implementation libs.androidx.foundation.layout
+    implementation libs.androidx.material3.android
     debugImplementation libs.ui.tooling
-
+    implementation("androidx.compose.material3:material3:1.2.0")
     // Navigation Compose
     implementation libs.androidx.navigation.compose
 
@@ -59,4 +61,16 @@ dependencies {
     implementation libs.androidx.room.runtime
     ksp libs.androidx.room.compiler
     implementation libs.androidx.room.ktx
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.google.code.gson:gson:2.10.1")
+
+
+    implementation("androidx.paging:paging-runtime:3.2.0")
+    implementation("androidx.paging:paging-compose:3.2.0")
+
+    implementation("androidx.room:room-paging:2.6.1")
+
 }

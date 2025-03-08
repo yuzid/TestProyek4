@@ -11,10 +11,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.myapplication.data.DataEntity
+import com.example.myapplication.ui.components.JetsnackButton
+import com.example.myapplication.ui.components.JetsnackSurface
 import com.example.myapplication.viewmodel.DataViewModel
 
 @Composable
@@ -44,7 +47,7 @@ fun EditScreen(
         }
     }
 
-    Surface(
+    JetsnackSurface (
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
     ) {
@@ -63,43 +66,93 @@ fun EditScreen(
             OutlinedTextField(
                 value = namaProvinsi,
                 onValueChange = { namaProvinsi = it },
-                label = { Text("Nama Provinsi") },
+                label = { Text("Nama Provinsi",color = Color.White) },
+                textStyle = LocalTextStyle.current.copy(color = Color.White), // Ubah warna teks input
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Color.Cyan, // Warna border saat fokus
+                    unfocusedBorderColor = Color.Gray, // Warna border saat tidak fokus
+                    cursorColor = Color.Cyan, // Warna kursor
+                    focusedLabelColor = Color.Cyan, // Warna label saat fokus
+                    unfocusedLabelColor = Color.White, // Warna label saat tidak fokus
+                    disabledBorderColor = Color.Gray, // Warna border saat disabled
+                    disabledTextColor = Color.LightGray // Warna teks saat disabled
+                ),
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
                 value = namaKabupatenKota,
                 onValueChange = { namaKabupatenKota = it },
-                label = { Text("Bps Nama Kabupaten/Kota") },
+                label = { Text("Bps Nama Kabupaten/Kota",color = Color.White) },
+                textStyle = LocalTextStyle.current.copy(color = Color.White), // Ubah warna teks input
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Color.Cyan, // Warna border saat fokus
+                    unfocusedBorderColor = Color.Gray, // Warna border saat tidak fokus
+                    cursorColor = Color.Cyan, // Warna kursor
+                    focusedLabelColor = Color.Cyan, // Warna label saat fokus
+                    unfocusedLabelColor = Color.White, // Warna label saat tidak fokus
+                    disabledBorderColor = Color.Gray, // Warna border saat disabled
+                    disabledTextColor = Color.LightGray // Warna teks saat disabled
+                ),
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
                 value = total,
                 onValueChange = { total = it },
-                label = { Text("Persentase peningkatan kapasitas sumber daya manusia kesehatan") },
+                label = { Text("Persentase peningkatan kapasitas sumber daya manusia kesehatan",color = Color.White) },
+                textStyle = LocalTextStyle.current.copy(color = Color.White), // Ubah warna teks input
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Color.Cyan, // Warna border saat fokus
+                    unfocusedBorderColor = Color.Gray, // Warna border saat tidak fokus
+                    cursorColor = Color.Cyan, // Warna kursor
+                    focusedLabelColor = Color.Cyan, // Warna label saat fokus
+                    unfocusedLabelColor = Color.White, // Warna label saat tidak fokus
+                    disabledBorderColor = Color.Gray, // Warna border saat disabled
+                    disabledTextColor = Color.LightGray // Warna teks saat disabled
+                ),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
                 value = satuan,
                 onValueChange = { satuan = it },
-                label = { Text("Satuan") },
+                label = { Text("Satuan",color = Color.White) },
+                textStyle = LocalTextStyle.current.copy(color = Color.White), // Ubah warna teks input
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Color.Cyan, // Warna border saat fokus
+                    unfocusedBorderColor = Color.Gray, // Warna border saat tidak fokus
+                    cursorColor = Color.Cyan, // Warna kursor
+                    focusedLabelColor = Color.Cyan, // Warna label saat fokus
+                    unfocusedLabelColor = Color.White, // Warna label saat tidak fokus
+                    disabledBorderColor = Color.Gray, // Warna border saat disabled
+                    disabledTextColor = Color.LightGray // Warna teks saat disabled
+                ),
                 modifier = Modifier.fillMaxWidth()
             )
             OutlinedTextField(
                 value = tahun,
                 onValueChange = { tahun = it },
-                label = { Text("Tahun") },
+                label = { Text("Tahun",color = Color.White) },
+                textStyle = LocalTextStyle.current.copy(color = Color.White), // Ubah warna teks input
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Color.Cyan, // Warna border saat fokus
+                    unfocusedBorderColor = Color.Gray, // Warna border saat tidak fokus
+                    cursorColor = Color.Cyan, // Warna kursor
+                    focusedLabelColor = Color.Cyan, // Warna label saat fokus
+                    unfocusedLabelColor = Color.White, // Warna label saat tidak fokus
+                    disabledBorderColor = Color.Gray, // Warna border saat disabled
+                    disabledTextColor = Color.LightGray // Warna teks saat disabled
+                ),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 modifier = Modifier.fillMaxWidth()
             )
             Spacer(modifier = Modifier.height(24.dp))
-            Button(
+            JetsnackButton (
                 onClick = {
                     val updatedData = DataEntity(
                         id = dataId,
                         namaProvinsi = namaProvinsi,
                         bpsnamaKabupatenKota = namaKabupatenKota,
-                        persentasePeningkatanKapasitasSumberDayaKesehatanManusia = total.toDoubleOrNull() ?: 0.0,
+                        persentasePeningkatanKapasitasSumberDayaKesehatanManusia = total.toFloatOrNull() ?: 0f,
                         satuan = satuan,
                         tahun = tahun.toIntOrNull() ?: 0
                     )
@@ -108,7 +161,9 @@ fun EditScreen(
                     navController.popBackStack()
                 },
                 shape = RoundedCornerShape(8.dp),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                backgroundGradient = listOf(Color.Blue, Color.Cyan),
+                disabledBackgroundGradient = listOf(Color.Gray, Color.DarkGray),
             ) {
                 Text(text = "Update Data")
             }
